@@ -1,6 +1,4 @@
 defmodule XogmiosWatcher.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
   @moduledoc false
 
   use Application
@@ -8,13 +6,14 @@ defmodule XogmiosWatcher.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: XogmiosWatcher.Worker.start_link(arg)
-      # {XogmiosWatcher.Worker, arg}
+      {XogmiosWatcher.ChainSyncClient, url: get_ogmios_url()}
     ]
 
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: XogmiosWatcher.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  defp get_ogmios_url do
+    System.fetch_env!("OGMIOS_URL")
   end
 end
