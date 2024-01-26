@@ -1,21 +1,12 @@
 # XogmiosWatcher
 
-**TODO: Add description**
+Elixir app that follows the Cardano blockchain and prints new blocks to the console.  
 
-## Installation
+Requires a running [Ogmios](https://ogmios.dev/) instance.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `xogmios_watcher` to your list of dependencies in `mix.exs`:
+## Running
 
-```elixir
-def deps do
-  [
-    {:xogmios_watcher, "~> 0.1.0"}
-  ]
-end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/xogmios_watcher>.
-
+docker build -t xogmios-watcher .
+docker run --env OGMIOS_URL="..." xogmios-watcher
+```
