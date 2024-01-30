@@ -13,4 +13,16 @@ defmodule XogmiosWatcher.ChainSyncClient do
     Logger.info("handle_block #{block["height"]} - #{date_time}")
     {:ok, :next_block, state}
   end
+
+  @impl true
+  def handle_connect(state) do
+    Logger.info("ChainSyncClient connecting #{inspect(state)}")
+    {:ok, state}
+  end
+
+  @impl true
+  def handle_disconnect(_reason, state) do
+    Logger.info("ChainSyncClient disconnecting #{inspect(state)}")
+    :ok
+  end
 end
