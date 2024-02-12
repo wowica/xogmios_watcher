@@ -22,7 +22,9 @@ defmodule XogmiosWatcher.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:xogmios, github: "wowica/xogmios", ref: "efb992d"}
+      {:xogmios, github: "wowica/xogmios", ref: "1b9a106"},
+      {:bech32, "~> 1.0"},
+      {:blake2, "~> 1.0"}
     ]
   end
 end

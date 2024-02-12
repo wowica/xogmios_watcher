@@ -1,18 +1,19 @@
 defmodule XogmiosWatcher do
-  @moduledoc """
-  Documentation for `XogmiosWatcher`.
-  """
+  @moduledoc false
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> XogmiosWatcher.hello()
-      :world
-
+  Converts a pool verification key to
+  its human readable bech32 id
   """
-  def hello do
-    :world
+  def from_vk_to_bech32_pool_id(pool_vrf) do
+    case Base.decode16(pool_vrf, case: :lower) do
+      {:ok, bytes} ->
+        hashed = Blake2.hash2b(bytes, 28)
+        Bech32.encode("pool", hashed)
+
+      :error ->
+        IO.puts("Error decoding hex string")
+        ""
+    end
   end
 end
