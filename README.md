@@ -1,8 +1,8 @@
 # XogmiosWatcher
 
-Elixir app that follows the Cardano blockchain and prints new blocks to the console.  
+Elixir application that follows the Cardano blockchain and prints new blocks to the console.
 
-Requires a running [Ogmios](https://ogmios.dev/) instance.
+Requires a running [Ogmios](https://ogmios.dev/) instance. If you don't have access to one, then visit [Demeter.run](https://demeter.run/)
 
 ## Running
 
